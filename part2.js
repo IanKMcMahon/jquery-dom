@@ -25,8 +25,8 @@ $(function(){
         currentID++
         movieList.push(movieData);
 
-    $("#movie-table-body").append(HTMLtoAppend);
-    $("#new-movie-form").trigger("reset");
+    $("#movie-form-body").append(HTMLtoAppend);
+    $("#rating-form").trigger("reset");
     })       
     
 })
