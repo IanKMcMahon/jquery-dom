@@ -7,4 +7,28 @@ Build an application that uses jQuery to do the following:
 - When the button to remove is clicked, remove each title and rating from the DOM.
 */
 
+let currentId = 0;
+
+let movieList = [];
+
+
+$(function(){
+    
+    $("#rating-form").on("submit", function(evt){
+        evt.preventDefault();
+        let title = $("#title");
+        let rating = $("#rating");
+
+        let movieData = {title, rating, currentID};
+        const HTMLtoAppend = createMovieDataHTML(moviedata);
+
+        currentID++
+        movieList.push(movieData);
+
+    $("#movie-table-body").append(HTMLtoAppend);
+    $("#new-movie-form").trigger("reset");
+    })       
+    
+})
+
 
