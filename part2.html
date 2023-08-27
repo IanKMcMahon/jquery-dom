@@ -19,15 +19,37 @@ to remove each title and rating from the DOM.
     <title>Document</title>
 </head>
 
-
 <body>
-    <div id="movie-form-body">
-        <form id="rating-form">
-            <index id="title" type="text">Title</index>
-            <index id="rating" type="number">Rating</index>
-            <button id="submit-button">SUBMIT</button>
+    <div id="form-and-table">
+        <h1>My Favorite Movies</h1>
+        <form>
+            <div class="form-group">
+                <label for="title">Title
+                    <input type="text" required id="title" class="form-control mx-sm-3">
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating
+                    <input type="number" required min="0" max="10" id="rating" class="form-control mx-sm-3">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary form-control mx-sm-3">Submit</button>
+            </div>
         </form>
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Title <i id="title" class="fas fa-sort-down"></i></th>
+                <th scope="col">Rating <i id="rating" class="fas fa-sort-down"></i></th>
+                <th scope="col">Delete </i></th>
+            </tr>
+        </thead>
+        <tbody id="movie-table-body">
+
+        </tbody>
+    </table>
     <script src="part2.js"></script>
 
 </body>
