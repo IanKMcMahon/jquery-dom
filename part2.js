@@ -42,12 +42,20 @@ $(function(){
       .remove();
 
 
+      ///FURTHER STUDY///
+      
+      // Ensure that the rating of a movie can only be between 0 and 10.
+      
+      
+      // Ensure that a title has at least 2 characters in it.
+      
+      
+      // Allow users to sort alphabetically by the title of the movie or by the rating of the movie from lowest to highest and vice versa.
 
 
 
 
-
-///
+      ///////////////////
 
 function createMovieDataHTML(data) {
     return `
