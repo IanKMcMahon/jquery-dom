@@ -65,7 +65,7 @@ $(function(){
       $("#movie-table-body").append(HTMLtoAppend);
     }
 
-    // toggle the arrow
+   
     $(evt.target).toggleClass("fa-sort-down");
     $(evt.target).toggleClass("fa-sort-up");
   });
@@ -73,7 +73,6 @@ $(function(){
 
 function sortBy(array, keyToSortBy, direction) {
     return array.sort(function(a, b) {
-      // since rating is a number, we have to convert these strings to numbers
       if (keyToSortBy === "rating") {
         a[keyToSortBy] = +a[keyToSortBy];
         b[keyToSortBy] = +b[keyToSortBy];
