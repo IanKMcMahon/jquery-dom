@@ -46,14 +46,46 @@ $(function(){
       
       // Ensure that the rating of a movie can only be between 0 and 10.
       
-      
       // Ensure that a title has at least 2 characters in it.
       
-      
-      // Allow users to sort alphabetically by the title of the movie or by the rating of the movie from lowest to highest and vice versa.
+       // Allow users to sort alphabetically by the title of the movie or by the rating of the movie from lowest to highest and vice versa.
+       
+       /////////////////
+
+  $(".fas").on("click", function(evt) {
+    
+    let direction = $(evt.target).hasClass("fa-sort-down") ? "down" : "up";
+    let keyToSortBy = $(evt.target).attr("id");
+    let sortedMovies = sortBy(moviesList, keyToSortBy, direction);
+  
+    $("#movie-table-body").empty();
+
+    for (let movie of sortedMovies) {
+      const HTMLtoAppend = createMovieDataHTML(movie);
+      $("#movie-table-body").append(HTMLtoAppend);
+    }
+
+    // toggle the arrow
+    $(evt.target).toggleClass("fa-sort-down");
+    $(evt.target).toggleClass("fa-sort-up");
+  });
 
 
-
+function sortBy(array, keyToSortBy, direction) {
+    return array.sort(function(a, b) {
+      // since rating is a number, we have to convert these strings to numbers
+      if (keyToSortBy === "rating") {
+        a[keyToSortBy] = +a[keyToSortBy];
+        b[keyToSortBy] = +b[keyToSortBy];
+      }
+      if (a[keyToSortBy] > b[keyToSortBy]) {
+        return direction === "up" ? 1 : -1;
+      } else if (b[keyToSortBy] > a[keyToSortBy]) {
+        return direction === "up" ? -1 : 1;
+      }
+      return 0;
+    });
+  }
 
       ///////////////////
 
